@@ -5,17 +5,18 @@ networks:
     driver: bridge
 
 services:
-  ngnix:
-    container_name: nginx
+  nginx:
+    container_name: 42_nginx
     build: ./requirements/nginx
-    # volumes:
-      # -wordpress
     networks:
       - inception
     ports:
       - "443:443"
+    # links:
+    #   - wordpress
+    restart: always
   mariadb:
-    container_name: mariadb
+    container_name: 42_mariadb
     build: ./requirements/mariadb
     networks:
       - inception
@@ -23,14 +24,18 @@ services:
       - "3306:3306"
     env_file:
       - ./.env
-    # volumes:
-      # -wordpress
-  wordpress:
-    container_name: wordpress
-    build: ./requirements/wordpress
-    networks:
-      - inception
-    ports:
-      - "9000"
-    env_file:
-      - ./.env
+    restart: always
+  # wordpress:
+  #   container_name: wordpress
+  #   build: ./requirements/wordpress
+  #   networks:
+  #     - inception
+  #   ports:
+  #     - "9000"
+  #   env_file:
+  #     - ./.env
+  #   depends_on:
+  #     - mariadb
+  #   links:
+  #     - mariadb
+  #   restart: always
