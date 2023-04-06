@@ -6,4 +6,4 @@ COPY ./conf/default /etc/nginx/conf.d/
 
 EXPOSE 443/tcp
 
-CMD ["/usr/sbin/nginx", "-g", "daemon off;"]
+CMD ["/usr/sbin/nginx", "-g", "daemon off"]

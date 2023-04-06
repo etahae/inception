@@ -21,5 +21,16 @@ services:
       - inception
     ports:
       - "3306:3306"
+    env_file:
+      - ./.env
     # volumes:
       # -wordpress
+  wordpress:
+    container_name: wordpress
+    build: ./requirements/wordpress
+    networks:
+      - inception
+    ports:
+      - "9000"
+    env_file:
+      - ./.env
