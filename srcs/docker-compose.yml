@@ -12,20 +12,20 @@ services:
       - inception
     ports:
       - "443:443"
-    depends_on:
-      - mariadb
     restart: always
     env_file:
       - ./.env
+    volumes:
+      - /data/wordpress:/var/www
   mariadb:
     container_name: mariadb
     build: ./requirements/mariadb
     networks:
       - inception
-    ports:
-      - "3306:3306"
     env_file:
       - ./.env
+    volumes:
+      - /data/mysql:/var/lib/mysql
     restart: always
   wordpress:
     container_name: wordpress
@@ -36,4 +36,22 @@ services:
       - ./.env
     depends_on:
       - mariadb
-    # restart: always
+    volumes:
+      - /data/wordpress:/var/www
+    links:
+      - mariadb
+    restart: always
+
+volumes:
+  mariadb:
+    driver: local
+    driver_opts:
+      type: none
+      device: /home/tnamir/data/mysql
+      o: bind
+  wordpress:
+    driver: local
+    driver_opts:
+      type: none
+      device: /home/tnamir/data/wordpress
+      o: bind

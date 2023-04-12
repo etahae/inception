@@ -8,7 +8,7 @@ define( 'DB_NAME', 'wordpress' );
 define( 'DB_USER', 'tnamir' );
 
 /** Database password */
-define( 'DB_PASSWORD', 'taha1337' );
+define( 'DB_PASSWORD', 'user_password' );
 
 /** Database hostname */
 define( 'DB_HOST', 'localhost' );
