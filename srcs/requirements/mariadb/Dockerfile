@@ -6,7 +6,7 @@ COPY ./conf/50-server.cnf /etc/mysql/mariadb.conf.d/
 COPY ./tools/db.sql /
 
 RUN service mariadb start && mariadb < db.sql && rm -rf db.sql && \
-    mkdir -p /data/mysql && chown -R mysql:mysql /data/mysql
+    mkdir -p /data/mysql
 
 EXPOSE 3306
 
