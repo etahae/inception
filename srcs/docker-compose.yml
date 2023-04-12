@@ -43,13 +43,13 @@ services:
     restart: always
 
 volumes:
-  mariadb:
+  mariadb_data:
     driver: local
     driver_opts:
       type: none
       device: /home/tnamir/data/mysql
       o: bind
-  wordpress:
+  wordpress_data:
     driver: local
     driver_opts:
       type: none
