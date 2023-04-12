@@ -8,8 +8,7 @@ COPY ./conf/nginx.conf /etc/nginx/conf.d/
 COPY ./tools/tnamir_ssl.crt /etc/nginx/ssl/
 COPY ./tools/tnamir_ssl.key /etc/nginx/ssl/
 
-RUN mkdir -p /run/php/ && chown -R www-data:www-data /run/php/ && \
-    mkdir -p /data/html
+RUN mkdir -p /run/php/ && chown -R www-data:www-data /run/php/
 
 # RUN mkdir -p /home/tnamir/data
 
