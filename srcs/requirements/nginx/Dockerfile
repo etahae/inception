@@ -11,6 +11,8 @@ COPY ./tools/tnamir_ssl.key /etc/nginx/ssl/
 RUN mkdir -p /run/php/ && chown -R www-data:www-data /run/php/ && \
     mkdir -p /data/html
 
+# RUN mkdir -p /home/tnamir/data
+
 EXPOSE 443/tcp
 
 CMD ["/usr/sbin/nginx", "-g", "daemon off;"]

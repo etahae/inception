@@ -15,8 +15,8 @@ services:
     restart: always
     env_file:
       - ./.env
-    volumes:
-      - wordpress_data:/var/www
+    # volumes:
+    #   - wordpress_data:/var/www
   mariadb:
     container_name: mariadb
     build: ./requirements/mariadb
@@ -24,8 +24,8 @@ services:
       - inception
     env_file:
       - ./.env
-    volumes:
-      - mariadb_data:/var/lib/mysql
+    # volumes:
+    #   - mariadb_data:/var/lib/mysql
     restart: always
   wordpress:
     container_name: wordpress
@@ -36,22 +36,22 @@ services:
       - ./.env
     depends_on:
       - mariadb
-    volumes:
-      - wordpress_data:/var/www
+    # volumes:
+    #   - wordpress_data:/var/www
     links:
       - mariadb
     restart: always
 
-volumes:
-  mariadb_data:
-    driver: local
-    driver_opts:
-      type: none
-      device: /home/tnamir/data/mysql
-      o: bind
-  wordpress_data:
-    driver: local
-    driver_opts:
-      type: none
-      device: /home/tnamir/data/wordpress
-      o: bind
+# volumes:
+#   mariadb_data:
+#     driver: local
+#     driver_opts:
+#       type: none
+#       device: /home/tnamir/data/mysql
+#       o: bind
+#   wordpress_data:
+#     driver: local
+#     driver_opts:
+#       type: none
+#       device: /home/tnamir/data/wordpress
+#       o: bind
