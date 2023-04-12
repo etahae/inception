@@ -17,14 +17,13 @@ RUN apt-get update && apt-get install -y    php7.4 php7.4-mysql \
 
 WORKDIR /var/www
 RUN wget https://wordpress.org/latest.zip && \
-    unzip latest.zip && \
+    unzip latest.zip && cp -rf wordpress/* . && \
     rm -rf latest.zip && \
     chown -R www-data:www-data /var/www/* && \
     chmod -R 755 /var/www/* && \
     mkdir -p /run/php/
-# && cp -rf wordpress/* .
 
-COPY ./conf/wp-config.php /var/www/wordpress
+COPY ./conf/wp-config.php /var/www/
 COPY ./tools/www.conf /etc/php/7.4/fpm/pool.d/
 
 RUN wget https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar && \
