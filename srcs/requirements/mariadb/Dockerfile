@@ -11,5 +11,5 @@ RUN service mariadb start && mariadb < db.sql && rm -rf db.sql && \
 
 EXPOSE 3306
 
-CMD ["mysqld", "--bind-address=0.0.0.0"]
+CMD ["mysqld"]
 
