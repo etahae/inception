@@ -1,6 +1,6 @@
 CREATE DATABASE $MYSQL_DATABASE;
 
-GRANT all privileges ON $MYSQL_DATABASE.* TO $MYSQL_USER@'localhost' identified BY PASSWORD($MYSQL_PASSWORD);
+GRANT all privileges ON $MYSQL_DATABASE.* TO $MYSQL_USER@'localhost' identified BY $MYSQL_PASSWORD;
 
 FLUSH privileges;
 
