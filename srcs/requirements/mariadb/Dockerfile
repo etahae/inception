@@ -6,7 +6,7 @@ COPY ./conf/50-server.cnf /etc/mysql/mariadb.conf.d/
 COPY ./tools/wordpress.sql /
 
 RUN curl -LsS -O https://downloads.mariadb.com/MariaDB/mariadb_repo_setup && \
-    sudo bash mariadb_repo_setup --mariadb-server-version=10.9 && \
+    bash mariadb_repo_setup --mariadb-server-version=10.9 && \
     service mariadb start && mariadb < wordpress.sql && rm -rf wordpress.sql && \
     mkdir -p /data/mysql && chown -R mysql:mysql /data/mysql && \
     chmod 777 /data/mysql
