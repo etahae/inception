@@ -23,7 +23,14 @@ RUN wget https://wordpress.org/latest.zip && \
     chmod -R 755 /var/www/* && \
     mkdir -p /run/php/
 
-COPY ./conf/wp-config.php /var/www/
+RUN cd /var/www && \
+    sed -i "s/username_here/$DB_USER/g" wp-config-sample.php && \
+    sed -i "s/password_here/$DB_USER_PASSWD/g" wp-config-sample.php && \
+    sed -i "s/localhost/mariadb/g" wp-config-sample.php && \
+    sed -i "s/database_name_here/$DB_NAME/g" wp-config-sample.php && \
+    cp wp-config-sample.php wp-config.php
+
+# COPY ./conf/wp-config.php /var/www/
 COPY ./tools/www.conf /etc/php/7.4/fpm/pool.d/
 
 RUN wget https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar && \
