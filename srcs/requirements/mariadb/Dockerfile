@@ -1,6 +1,6 @@
 FROM debian:stable
 
-RUN apt-get update && apt-get install -y mariadb-server mariadb-client systemd
+RUN apt-get update && apt-get install -y mariadb-server mariadb-client systemd curl
 
 COPY ./conf/50-server.cnf /etc/mysql/mariadb.conf.d/
 COPY ./tools/wordpress.sql /
