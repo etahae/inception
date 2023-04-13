@@ -1,5 +1,5 @@
 CREATE DATABASE wordpress;
-GRANT all privileges on wordpress.* TO 'tnamir'@'localhost' identified by 'user_password';
+GRANT all privileges on wordpress.* TO $MYSQL_USER@'localhost' identified by $MYSQL_PASSWORD;
 flush privileges;
 
-ALTER USER 'root'@'localhost' IDENTIFIED BY 'root_password';
+ALTER USER $MYSQL_ROOT_USER@'localhost' IDENTIFIED BY $MYSQL_ROOT_PASSWORD;
