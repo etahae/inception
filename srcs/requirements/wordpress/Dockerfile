@@ -24,10 +24,10 @@ RUN wget https://wordpress.org/latest.zip && \
     mkdir -p /run/php/
 
 RUN cd /var/www && \
-    sed -i "s/username_here/$DB_USER/g" wp-config-sample.php && \
-    sed -i "s/password_here/$DB_USER_PASSWD/g" wp-config-sample.php && \
-    sed -i "s/localhost/mariadb/g" wp-config-sample.php && \
-    sed -i "s/database_name_here/$DB_NAME/g" wp-config-sample.php && \
+    sed -i "s/username_here/$MYSQL_USER/g" wp-config-sample.php && \
+    sed -i "s/password_here/$MYSQL_PASSWORD/g" wp-config-sample.php && \
+    sed -i "s/localhost/$WORDPRESS_DB_HOST/g" wp-config-sample.php && \
+    sed -i "s/database_name_here/$MYSQL_DATABASE/g" wp-config-sample.php && \
     cp wp-config-sample.php wp-config.php
 
 # COPY ./conf/wp-config.php /var/www/
