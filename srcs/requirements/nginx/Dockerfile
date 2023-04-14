@@ -10,6 +10,6 @@ COPY ./tools/tnamir_ssl.key /etc/nginx/ssl/
 
 RUN chown -R www-data:www-data /var/www/html
 
-EXPOSE 443/tcp
+EXPOSE 443
 
 CMD ["nginx", "-g", "daemon off;"]
