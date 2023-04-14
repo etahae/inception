@@ -8,7 +8,5 @@ COPY ./tools/wordpress.sql /
 
 RUN service mariadb start && mariadb < wordpress.sql && rm -rf wordpress.sql
 
-EXPOSE 3306
-
 CMD mariadbd
 
