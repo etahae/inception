@@ -1,6 +1,6 @@
 FROM debian:stable
 
-RUN apt-get update && apt-get install -y php7.4 php-mysqli php7.4-fpm curl unzip systemctl
+RUN apt-get update && apt-get install -y php7.4 php-mysqli php7.4-fpm wget unzip systemctl
 
 RUN wget https://wordpress.org/latest.zip && \
     unzip latest.zip && cp -rf wordpress/* /var/www && \
