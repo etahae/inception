@@ -2,23 +2,9 @@ FROM debian:stable
 
 RUN apt-get update && apt-get install -y php7.4 php-mysqli php7.4-fpm wget unzip systemctl
 
-RUN wget https://wordpress.org/latest.zip && \
-    unzip latest.zip && cp -rf wordpress/* /var/www && \
-    rm -rf latest.zip
+COPY ./conf/www.conf /etc/php/7.4/fpm/pool.d/
+COPY ./tools/wp.sh /
 
-COPY ./tools/www.conf /etc/php/7.4/fpm/pool.d/
-
-RUN cd /var/www/wordpress && \
-    sed -i "s/username_here/wp_user/g" wp-config-sample.php && \
-    sed -i "s/password_here/userpassword/g" wp-config-sample.php && \
-    sed -i "s/localhost/mariadb/g" wp-config-sample.php && \
-    sed -i "s/database_name_here/wordpress/g" wp-config-sample.php && \
-    cp wp-config-sample.php wp-config.php && \
-    chown -R www-data /var/www/wordpress && \
-    wget https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar && \
-    chmod +x wp-cli.phar && \
-    mv wp-cli.phar /usr/local/bin/wp && \
-    wp core install --allow-root --url=tnamir.42.fr --title=inception --admin_user=tnamir --admin_password=rootpassword --admin_email=tnamir@gmail.com && \
-    wp user create --allow-root wp_user tnamir@hotmail.com --role=author --user_pass=userpassword
+RUN /wp.sh && rm -rf wp.sh
 
 CMD ["/usr/sbin/php-fpm7.4", "-F"]
