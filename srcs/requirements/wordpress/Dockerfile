@@ -1,23 +1,9 @@
 FROM debian:stable
 
-RUN apt-get update && apt-get install -y    php7.4 php7.4-mysql \
-                                            php7.4-fpm wget \
-                                            php7.4-curl php-gd \
-                                            php7.4-intl \
-                                            php7.4-mbstring \
-                                            php7.4-soap \
-                                            php7.4-xml \
-                                            php7.4-xmlrpc \
-                                            php7.4-zip \
-                                            php7.4-cgi \
-                                            php7.4-pdo \
-                                            php7.4-gd \
-                                            php7.4-cli \
-                                            curl unzip systemctl
+RUN apt-get update && apt-get install -y php7.4 php-mysqli php7.4-fpm curl unzip systemctl
 
-WORKDIR /var/www
 RUN wget https://wordpress.org/latest.zip && \
-    unzip latest.zip && cp -rf wordpress/* . && \
+    unzip latest.zip && cp -rf wordpress/* /var/www && \
     rm -rf latest.zip
 
 COPY ./tools/www.conf /etc/php/7.4/fpm/pool.d/
