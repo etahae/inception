@@ -18,7 +18,7 @@ RUN apt-get update && apt-get install -y    php7.4 php7.4-mysql \
 WORKDIR /var/www
 RUN wget https://wordpress.org/latest.zip && \
     unzip latest.zip && cp -rf wordpress/* . && \
-    rm -rf latest.zip && \
+    rm -rf latest.zip
 
 RUN cd /var/www && \
     sed -i "s/username_here/$MYSQL_USER/g" wp-config-sample.php && \
