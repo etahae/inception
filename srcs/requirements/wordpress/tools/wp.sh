@@ -10,7 +10,7 @@ if [ ! -f /var/www/wordpress/index.php ]; then
     cd /var/www/wordpress
     mv /wp-config.php .
     chown -R www-data /var/www/wordpress
-    wget https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar;
+    curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
     chmod +x wp-cli.phar
     mv wp-cli.phar /usr/local/bin/wp
     wp core install --allow-root --url=tnamir.42.fr --title=inception --admin_user=tnamir --admin_password=rootpassword --admin_email=tnamir@gmail.com
