@@ -19,16 +19,16 @@ WORKDIR /var/www
 RUN wget https://wordpress.org/latest.zip && \
     unzip latest.zip && cp -rf wordpress/* . && \
     rm -rf latest.zip && \
-    chown -R www-data:www-data /var/www/* && \
-    chmod -R 755 /var/www/* && \
-    mkdir -p /run/php/
 
 RUN cd /var/www && \
     sed -i "s/username_here/$MYSQL_USER/g" wp-config-sample.php && \
     sed -i "s/password_here/$MYSQL_PASSWORD/g" wp-config-sample.php && \
     sed -i "s/localhost/$WORDPRESS_DB_HOST/g" wp-config-sample.php && \
     sed -i "s/database_name_here/$MYSQL_DATABASE/g" wp-config-sample.php && \
-    cp wp-config-sample.php wp-config.php
+    cp wp-config-sample.php wp-config.php && \
+    chown -R www-data:www-data /var/www/* && \
+    chmod -R 755 /var/www/* && \
+    mkdir -p /run/php/
 
 # COPY ./conf/wp-config.php /var/www/
 COPY ./tools/www.conf /etc/php/7.4/fpm/pool.d/
