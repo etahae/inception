@@ -1,5 +1,7 @@
 FROM debian:stable
 
+EXPOSE 3306
+
 RUN apt-get update && apt-get install -y mariadb-server mariadb-client systemd curl && \
     mkdir -p /var/run/mysqld; chown -R mysql:mysql /var/run/mysqld
 
