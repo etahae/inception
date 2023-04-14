@@ -11,7 +11,7 @@ if [ ! -f /var/www/wordpress/index.php ]; then
     sed -i "s/username_here/'wp_user'/g" wp-config-sample.php
     sed -i "s/password_here/'userpassword'/g" wp-config-sample.php
     sed -i "s/localhost/'mariadb'/g" wp-config-sample.php
-    sed -i "s/database_name_here/'wordpress'/g" wp-config-sample.php
+    sed -i "s/database_name_here/wordpress/g" wp-config-sample.php
     cp wp-config-sample.php wp-config.php
     chown -R www-data /var/www/wordpress
     wget https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
