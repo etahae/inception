@@ -7,4 +7,4 @@ COPY ./conf/db.sh .
 
 RUN chmod +x db.sh
 
-CMD ["bash" , "db-setup.sh"]
+CMD ["bash" , "db.sh"]
