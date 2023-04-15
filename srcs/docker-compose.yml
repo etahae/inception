@@ -1,4 +1,4 @@
-version: "3"
+version: "3.7"
 
 networks:
   inception:
@@ -13,11 +13,12 @@ services:
       - inception
     ports:
       - "443:443"
-    restart: always
+    restart: unless-stopped
     env_file:
       - ./.env
     volumes:
       - wordpress:/var/www
+
   mariadb:
     container_name: mariadb
     image: mariadb
@@ -28,7 +29,8 @@ services:
       - ./.env
     volumes:
       - mariadb:/var/lib/mysql
-    restart: always
+    restart: unless-stopped
+
   wordpress:
     container_name: wordpress
     image: wordpress
@@ -40,10 +42,10 @@ services:
     depends_on:
       - mariadb
     volumes:
-      - wordpress:/var/www
+      - wordpress:/var/www/wordpress
     links:
       - mariadb
-    restart: always
+    restart: unless-stopped
 
 volumes:
   mariadb:
