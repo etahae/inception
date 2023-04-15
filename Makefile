@@ -6,8 +6,9 @@ DC_PATH = srcs/docker-compose.yml
 all:
 	mkdir -p /home/tnamir/data/wp
 	mkdir -p /home/tnamir/data/db
-	docker-compose -f $(DC_PATH) build --no-cache
+	docker-compose -f $(DC_PATH) build
 	docker-compose -f $(DC_PATH) up
+#--no-cache
 
 clean:
 	docker-compose -f $(DC_PATH) down
