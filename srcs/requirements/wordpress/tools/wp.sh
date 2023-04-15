@@ -15,7 +15,7 @@ if [ ! -f /var/www/wordpress/index.php ]; then
     wp --allow-root core download --path=/var/www/wordpress
 
 
-    wp config create  --dbname=wordpress --dbuser=wp_user --dbpass=userpassword --dbhost=mysql --path=/var/www/wordpress --allow-root
+    wp config create  --dbname=wordpress --dbuser=wp_user --dbpass=userpassword --dbhost=srcs_mariadb --path=/var/www/wordpress --allow-root
 
 
     # wp core install --path=/var/www/wordpress --url=tnamir.42.fr --title=inception --admin_user=tnamir --admin_password=rootpassword --admin_email=tnamir@live.fr --skip-email --allow-root
