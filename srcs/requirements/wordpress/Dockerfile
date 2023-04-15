@@ -6,6 +6,6 @@ COPY ./conf/www.conf /etc/php/7.4/fpm/pool.d/
 # COPY ./conf/wp-config.php /
 COPY ./tools/wp.sh /
 
-RUN chmod 777 /wp.sh && /wp.sh && rm -rf wp.sh
+RUN chmod +x /wp.sh && /wp.sh && rm -rf wp.sh
 
 CMD ["/usr/sbin/php-fpm7.4", "-F"]
