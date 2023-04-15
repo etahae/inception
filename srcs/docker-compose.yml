@@ -43,8 +43,6 @@ services:
       - mariadb
     volumes:
       - wordpress:/var/www/wordpress
-    links:
-      - mariadb
     restart: unless-stopped
 
 volumes:
