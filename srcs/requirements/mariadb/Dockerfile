@@ -10,7 +10,7 @@ COPY ./tools/wordpress.sql /
 COPY ./tools/db.sh /
 
 RUN service mariadb start && mariadb < wordpress.sql && rm -rf wordpress.sql && \
-    ./db.sh
+    chmod +x db.sh && ./db.sh
     
 
 CMD mysqld_safe
