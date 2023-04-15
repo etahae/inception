@@ -15,5 +15,4 @@ clean:
 
 fclean: clean
 	docker system prune -af
-	docker volume ls -q | xargs docker volume rm 
 	rm -rf /home/tnamir/data
