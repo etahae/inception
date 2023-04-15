@@ -3,7 +3,7 @@ FROM debian:stable
 RUN apt-get --assume-yes update && apt-get --assume-yes upgrade ; \
 apt-get --assume-yes install mariadb-server
 
-COPY ./config/db.sh .
+COPY ./conf/db.sh .
 
 RUN chmod +x db.sh
 
