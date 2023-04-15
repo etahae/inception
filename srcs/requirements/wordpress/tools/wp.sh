@@ -16,7 +16,7 @@ if [ ! -f /var/www/wordpress/index.php ]; then
 
     chown -R www-data:www-data /var/www/wordpress
 
-    wp config create  --dbname=wordpress --dbuser=wp_user --dbpass=userpassword --dbhost=mariadb --path=/var/www/wordpress --allow-root
+    wp config create  --dbname=wordpress --dbuser=tnamir --dbpass=userpassword --dbhost=mariadb --path=/var/www/wordpress --allow-root
 
 
     # wp core install --path=/var/www/wordpress --url=tnamir.42.fr --title=inception --admin_user=tnamir --admin_password=rootpassword --admin_email=tnamir@live.fr --skip-email --allow-root
