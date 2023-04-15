@@ -2,7 +2,8 @@ FROM debian:stable
 
 EXPOSE 3306
 
-RUN apt-get update && apt-get install -y mariadb-server mariadb-client systemd curl && \
+RUN apt-get update && apt-get install -y mariadb-server-core-10.4=1:10.4.17+maria~focal \
+    mariadb-client-core-10.4=1:10.4.17+maria~focal systemd curl && \
     mkdir -p /var/run/mysqld; chown -R mysql:mysql /var/run/mysqld
 
 COPY ./conf/50-server.cnf /etc/mysql/mariadb.conf.d/
