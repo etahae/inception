@@ -3,9 +3,9 @@ mkdir -p /run/php
 if [ ! -f /var/www/wordpress/index.php ]; then
     mkdir -p /var/www/
 
-    wget https://wordpress.org/latest.zip
-    unzip latest.zip
-    cp -r wordpress/ /var/www/
+    # wget https://wordpress.org/latest.zip
+    # unzip latest.zip
+    # cp -r wordpress/ /var/www/
 
     cd /var/www/wordpress
     # mv /wp-config.php .
