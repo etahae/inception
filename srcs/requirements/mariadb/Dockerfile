@@ -1,16 +1,10 @@
-FROM debian:stable
+FROM debian:buster
 
-EXPOSE 3306
+RUN apt-get --assume-yes update && apt-get --assume-yes upgrade ; \
+apt-get --assume-yes install mariadb-server
 
-RUN apt-get update && apt-get -y upgrade && apt-get install -y mariadb-server && \
-    mkdir -p /var/run/mysqld; chown -R mysql:mysql /var/run/mysqld
+COPY ./config/db.sh .
 
-COPY ./conf/50-server.cnf /etc/mysql/mariadb.conf.d/
-COPY ./tools/wordpress.sql /
+RUN chmod +x db.sh
 
-RUN service mariadb start && mariadb < wordpress.sql && rm -rf wordpress.sql && \
-    mariadb --user=root --execute "ALTER USER 'root'@'localhost' IDENTIFIED BY 'rootpassword';" && \
-    service mariadb stop
-
-CMD mysqld_safe
-
+CMD ["bash" , "db-setup.sh"]
