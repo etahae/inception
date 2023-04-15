@@ -15,7 +15,7 @@ wp --allow-root core download --path=/var/www/html/wp
 
 # chown -R www-data:www-data /var/www/wordpress
 
-wp config create  --dbname=wordpress --dbuser=tnamir --dbpass=userpassword --dbhost=localhost --path=/var/www/html/wp --allow-root
+wp config create  --dbname=wordpress --dbuser=tnamir --dbpass=userpassword --dbhost=0.0.0.0 --path=/var/www/html/wp --allow-root
 
 
 # wp core install --path=/var/www/wordpress --url=tnamir.42.fr --title=inception --admin_user=tnamir --admin_password=rootpassword --admin_email=tnamir@live.fr --skip-email --allow-root
