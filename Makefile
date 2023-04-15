@@ -4,8 +4,8 @@
 DC_PATH = srcs/docker-compose.yml
 
 all:
-	mkdir -p /home/tnamir/data/wp
-	mkdir -p /home/tnamir/data/db
+	mkdir -p /home/tnamir/data/wordpress
+	mkdir -p /home/tnamir/data/mariadb
 	docker-compose -f $(DC_PATH) build
 	docker-compose -f $(DC_PATH) up
 #--no-cache

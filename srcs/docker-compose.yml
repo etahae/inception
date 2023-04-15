@@ -50,7 +50,7 @@ volumes:
     driver: local
     driver_opts:
       type: none
-      device: /home/tnamir/data/mysql
+      device: /home/tnamir/data/mariadb
       o: bind
   wordpress:
     driver: local
