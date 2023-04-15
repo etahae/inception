@@ -9,7 +9,7 @@ COPY ./conf/50-server.cnf /etc/mysql/mariadb.conf.d/
 COPY ./tools/wordpress.sql /
 
 RUN service mariadb start && mariadb < wordpress.sql && rm -rf wordpress.sql && \
-    mariadb --user=root --execute "ALTER USER 'root'@'localhost' IDENTIFIED BY 'rootpassword';" && \
+    mariadb --user=root --execute "ALTER USER 'tnamir'@'localhost' IDENTIFIED BY 'rootpassword';" && \
     mariadb --user=root -p 'rootpassword' --execute "FLUSH PRIVILEGES;"
 
 CMD mariadbd
