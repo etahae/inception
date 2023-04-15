@@ -31,9 +31,9 @@ wp --allow-root core download --path=/var/www/html/wp
 wp config create  --dbname=${MYSQL_DATABASE} --dbuser=${MYSQL_USER} --dbpass=${MYSQL_PASSWORD} --dbhost=${DB_HOST} --path=/var/www/html/wp --allow-root
 
 
-# wp core install --path=/var/www/html/wp --url=tnamir.42.fr --title=inception --admin_user=tnamir --admin_password=rootpassword --admin_email=tnamir@live.fr --skip-email --allow-root
+wp core install --path=/var/www/html/wp --url=${DOMAIN_NAME} --title=inception --admin_user=${MYSQL_ROOT_USER} --admin_password=${MYSQL_ROOT_PASSWORD} --admin_email=tnamir@live.fr --skip-email --allow-root
 
 
-# wp user create tnamir tnamir@hotmail.com --user_pass=userpassword --path=/var/www/html/wp --allow-root
+wp user create ${MYSQL_USER} tnamir@hotmail.com --user_pass=${MYSQL_PASSWORD} --path=/var/www/html/wp --allow-root
 
 # ${MYSQL_DATABASE}
