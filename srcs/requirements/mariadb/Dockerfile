@@ -12,5 +12,5 @@ RUN service mariadb start && mariadb < wordpress.sql && rm -rf wordpress.sql && 
     mariadb --user=root --execute "ALTER USER 'root'@'localhost' IDENTIFIED BY 'rootpassword';" && \
     mariadb --user=root -p'rootpassword' --execute "FLUSH PRIVILEGES;"
 
-CMD mariadbd
+CMD mysqld_safe
 
