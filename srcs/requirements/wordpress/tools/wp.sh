@@ -8,7 +8,7 @@ if [ ! -f /var/www/wordpress/index.php ]; then
     cp -r wordpress/ /var/www/
 
     cd /var/www/wordpress
-    mv /wp-config.php .
+    # mv /wp-config.php .
     chown -R www-data /var/www/wordpress
     curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
     chmod +x wp-cli.phar
