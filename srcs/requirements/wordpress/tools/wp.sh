@@ -12,6 +12,7 @@ chmod +x wp-cli.phar
 mv wp-cli.phar /usr/local/bin/wp
 
 mkdir -p /var/www/http/wp
+chown -R www-data:www-data /var/www/http/wp
 
 cd /var/www/http/wp
 
