@@ -7,7 +7,6 @@ networks:
 services:
   nginx:
     container_name: nginx
-    image: nginx
     build: ./requirements/nginx
     networks:
       - inception
@@ -20,7 +19,6 @@ services:
       - wordpress:/var/www
   mariadb:
     container_name: mariadb
-    image: mariadb
     build: ./requirements/mariadb
     networks:
       - inception
@@ -31,7 +29,6 @@ services:
     restart: always
   wordpress:
     container_name: wordpress
-    image: wordpress
     build: ./requirements/wordpress
     networks:
       - inception
