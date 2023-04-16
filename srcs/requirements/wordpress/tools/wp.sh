@@ -35,17 +35,11 @@ cd /var/www/wordpress
 
 wp --allow-root core download --path=/var/www/wordpress
 
-sleep 5;
-
 wp config create  --dbname=${MYSQL_DATABASE} --dbuser=${MYSQL_USER} --dbpass=${MYSQL_PASSWORD} --dbhost=mariadb --path=/var/www/wordpress --allow-root
 
-sleep 3;
+wp core install --path=/var/www/wordpress --url=${DOMAIN_NAME} --title=inception --admin_user=${WP_ADMINE_USER} --admin_password=${WP_ADMINE_PASSWORD} --admin_email=root1337@gmail.com --skip-email --allow-root
 
-wp core install --path=/var/www/wordpress --url=${WP_URL} --title=${WP_TITLE} --admin_user=${WP_ADMINE_USER} --admin_password=${WP_ADMINE_PASSWORD} --admin_email=${WP_ADMINE_EMAIL} --skip-email --allow-root
-
-sleep 3;
-
-wp user create ${WP_USER} ${WP_USER_EMAIL} --user_pass=${WP_USER_PASSWORD} --path=/var/www/wordpress --allow-root
+wp user create ${WP_USER} tnamir1337@gmail.com --user_pass=${WP_USER_PASSWORD} --path=/var/www/wordpress --allow-root
 
 
 # ${MYSQL_DATABASE}
