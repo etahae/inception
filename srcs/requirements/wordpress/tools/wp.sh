@@ -27,7 +27,7 @@ chmod +x wp-cli.phar
 
 mv wp-cli.phar /usr/local/bin/wp
 
-mv www.conf /etc/php/7.4/fpm/pool.d
+mv www.conf /etc/php/7.3/fpm/pool.d
 
 mkdir -p /run/php
 
@@ -41,4 +41,4 @@ wp core install --path=${WP_PATH} --url=${DOMAIN_NAME} --title=${TITLE} --admin_
 
 wp user create ${WP_USER} ${WP_USER_EMAIL} --user_pass=${WP_USER_PASSWORD} --path=${WP_PATH} --allow-root
 
-/usr/sbin/php-fpm7.4 -F
+/usr/sbin/php-fpm7.3 -F
