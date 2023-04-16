@@ -14,8 +14,6 @@ mysql --user=root -p ${MYSQL_ROOT_PASSWORD} --execute "FLUSH PRIVILEGES;"
 kill $(cat /var/run/mysqld/mysqld.pid)
 sleep 5
 
-# kill $(cat /var/run/mysqld/mysqld.pid)
-
 fi
 
-mysqld_safe
+mysqld

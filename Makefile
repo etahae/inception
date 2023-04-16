@@ -15,4 +15,3 @@ clean:
 
 fclean: clean
 	docker system prune -af
-	rm -rf /home/tnamir/data
