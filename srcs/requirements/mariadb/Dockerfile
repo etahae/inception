@@ -8,4 +8,6 @@ COPY ./conf/50-server.cnf /
 
 RUN chmod +x db.sh && chmod 755 50-server.cnf
 
+EXPOSE 3306
+
 CMD ["bash" , "db.sh"]
