@@ -1,7 +1,7 @@
 FROM debian:buster
 
-RUN apt-get --assume-yes update && apt-get --assume-yes upgrade ; \
-apt-get --assume-yes install mariadb-server
+RUN apt-get -y update && apt-get -y upgrade ; \
+apt-get -y install mariadb-server
 
 COPY ./tools/db.sh ./
 COPY ./conf/50-server.cnf /
