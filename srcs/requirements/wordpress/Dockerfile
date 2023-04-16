@@ -2,12 +2,11 @@ FROM debian:buster
 
 RUN apt-get --assume-yes update && apt-get --assume-yes upgrade
 
-# php-fpm (fastcgi prosses manager) used to run php scripts
-# php-mysql php extension that allows php to communicare with mysql databse
-RUN apt-get --assume-yes install curl php7.3-fpm less php-mysql mariadb-client
+RUN apt-get --assume-yes install curl php7.3-fpm php-mysql mariadb-client
 
-COPY ./tools/wp.sh .
+COPY ./conf/www.conf /
+COPY ./tools/wp.sh /
 RUN chmod +x wp.sh
-# RUN service php7.3-fpm start
 CMD ["bash", "wp.sh"]
 
+# php-fpm fastcgi prosses manager to run php scripts
