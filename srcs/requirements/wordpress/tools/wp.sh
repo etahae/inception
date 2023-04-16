@@ -39,6 +39,7 @@ wp config create  --dbname=${MYSQL_DATABASE} --dbuser=${MYSQL_USER} --dbpass=${M
 sleep 5
 wp core install --path=${WP_PATH} --url=${DOMAIN_NAME} --title=${TITLE} --admin_user=${ROOT_USER} --admin_password=${ROOT_PASSWORD} --admin_email=${WP_ROOT_EMAIL} --skip-email --allow-root
 sleep 5
-wp user create ${WP_USER} ${WP_USER_EMAIL} --user_pass=${WP_USER_PASSWORD} --path=${WP_PATH} --allow-root
+wp user create ${WP_USER} ${WP_USER_EMAIL} --role=author --user_pass=${WP_USER_PASSWORD} --path=${WP_PATH} --allow-root
 sleep 5
 /usr/sbin/php-fpm7.3 -F
+echo "wp is configured succefully!"
