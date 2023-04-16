@@ -10,6 +10,7 @@ mysql --user=root --execute "ALTER USER 'root'@'localhost' IDENTIFIED BY '${MYSQ
 mysql --user=root -p ${MYSQL_ROOT_PASSWORD} --execute "FLUSH PRIVILEGES;"
 
 kill $(cat /var/run/mysqld/mysqld.pid)
+sleep 5
 
 # kill $(cat /var/run/mysqld/mysqld.pid)
 
