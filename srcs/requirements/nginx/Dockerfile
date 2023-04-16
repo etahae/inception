@@ -8,7 +8,7 @@ COPY ./conf/nginx.conf /etc/nginx/conf.d/
 COPY ./tools/tnamir_ssl.crt /etc/nginx/ssl/
 COPY ./tools/tnamir_ssl.key /etc/nginx/ssl/
 
-RUN mkdir -p /var/www/html/wp && chown -R www-data:www-data /var/www/html/wp
+RUN mkdir -p /var/www/http/wp
 
 EXPOSE 443/tcp
 
