@@ -1,3 +1,5 @@
+mv 50-server.cnf /etc/mysql/mariadb.conf.d/
+
 if [ ! -d "/var/lib/mysql/${MYSQL_DATABASE}" ]
 then
 
