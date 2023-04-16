@@ -13,5 +13,5 @@ RUN mkdir -p /var/www/wordpress && chmod 755 /etc/nginx/conf.d/wp.conf && \
 
 EXPOSE 443/tcp
 
-CMD ["nginx", "-t"]
+# CMD ["nginx", "-t"]
 CMD ["nginx", "-g", "daemon off;"]
