@@ -1,12 +1,13 @@
-FROM debian:stable
+FROM debian:buster
 
-RUN apt-get update && apt-get install -y php7.4 php-mysql php7.4-fpm mariadb-server \
-    mariadb-client wget unzip systemctl curl
+RUN apt-get --assume-yes update && apt-get --assume-yes upgrade
 
-COPY ./conf/www.conf /etc/php/7.4/fpm/pool.d/
-# COPY ./conf/wp-config.php /
-COPY ./tools/wp.sh /
+# php-fpm (fastcgi prosses manager) used to run php scripts
+# php-mysql php extension that allows php to communicare with mysql databse
+RUN apt-get --assume-yes install curl php7.3-fpm less php-mysql mariadb-client
 
-RUN mkdir -p /var/www/html/wp && chmod +x /wp.sh && /wp.sh && rm -rf wp.sh
+COPY ./tools/wp.sh .
+RUN chmod +x wp.sh
+# RUN service php7.3-fpm start
+CMD ["bash", "wp.sh"]
 
-CMD ["/usr/sbin/php-fpm7.4", "-F"]
