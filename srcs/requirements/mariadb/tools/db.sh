@@ -9,7 +9,7 @@ mysql --user=root --execute "USE '${MYSQL_DATABASE}'; GRANT ALL PRIVILEGES ON * 
 mysql --user=root --execute "ALTER USER 'root'@'localhost' IDENTIFIED BY '${MYSQL_ROOT_PASSWORD}';"
 mysql --user=root -p ${MYSQL_ROOT_PASSWORD} --execute "FLUSH PRIVILEGES;"
 
-service mysql stop
+kill $(cat /var/run/mysqld/mysqld.pid)
 
 # kill $(cat /var/run/mysqld/mysqld.pid)
 
