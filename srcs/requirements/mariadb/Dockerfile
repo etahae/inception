@@ -6,6 +6,6 @@ apt-get -y install mariadb-server
 COPY ./tools/db.sh ./
 COPY ./conf/50-server.cnf /
 
-RUN chmod +x db.sh
+RUN chmod +x db.sh && chmod 755 50-server.cnf
 
 CMD ["bash" , "db.sh"]

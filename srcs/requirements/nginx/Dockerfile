@@ -8,7 +8,7 @@ COPY ./conf/nginx.conf /etc/nginx/conf.d/
 COPY ./tools/tnamir_ssl.crt /etc/nginx/ssl/
 COPY ./tools/tnamir_ssl.key /etc/nginx/ssl/
 
-RUN mkdir -p /var/www/wordpress
+RUN mkdir -p /var/www/wordpress && chmod 755 /etc/nginx/conf.d/nginx.conf
 
 EXPOSE 443/tcp
 
