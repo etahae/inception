@@ -39,6 +39,6 @@ wp core install --path=${WP_PATH} --url=${DOMAIN_NAME} --title=${TITLE} --admin_
 wp user create ${MYSQL_USER} ${WP_USER_EMAIL} --user_pass=${MYSQL_PASSWORD} --path=${WP_PATH} --allow-root
 
 echo "wordpress is configured succefully!"
-echo ${MYSQL_USER} ${WP_USER_EMAIL} ${MYSQL_PASSWORD}
+# echo ${MYSQL_USER} ${WP_USER_EMAIL} ${MYSQL_PASSWORD}
 
 /usr/sbin/php-fpm7.3 -F
