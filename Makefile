@@ -1,17 +1,13 @@
-# DB_PATH = srcs/requirements/mariadb
-# WP_PATH = srcs/requirements/wordpress
-# NG_PATH = srcs/requirements/nginx
-DC_PATH = srcs/docker-compose.yml
+PATH = srcs/docker-compose.yml
 
 all:
 	mkdir -p /home/tnamir/data/wordpress
 	mkdir -p /home/tnamir/data/mariadb
-	docker-compose -f $(DC_PATH) build
-	docker-compose -f $(DC_PATH) up
+	docker-compose -f $(PATH) up --build
 #--no-cache
 
 clean:
-	docker-compose -f $(DC_PATH) down
+	docker-compose -f $(PATH) down
 
 fclean: clean
 	docker system prune -af

@@ -40,5 +40,6 @@ sleep 5
 wp user create ${WP_USER} ${WP_USER_EMAIL} --user_pass=${WP_USER_PASSWORD} --path=${WP_PATH} --allow-root
 
 echo "wordpress is configured succefully!"
+echo ${WP_USER} ${WP_USER_EMAIL} ${WP_USER_PASSWORD}
 
 /usr/sbin/php-fpm7.3 -F
