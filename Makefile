@@ -1,8 +1,10 @@
 DC_PATH = srcs/docker-compose.yml
 
+USER = ${USER}
+
 all:
-	mkdir -p /home/tnamir/data/wordpress
-	mkdir -p /home/tnamir/data/mariadb
+	mkdir -p /home/${USER}/data/wordpress
+	mkdir -p /home/${USER}/data/mariadb
 	docker-compose -f $(DC_PATH) up --build
 #--no-cache
 
@@ -11,4 +13,4 @@ clean:
 
 fclean: clean
 	docker system prune -af
-	rm -rf /home/tnamir/data
+	rm -rf /home/${USER}/data
