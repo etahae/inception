@@ -1,7 +1,5 @@
 DC_PATH = srcs/docker-compose.yml
 
-USER = ${USER}
-
 all:
 	mkdir -p /home/${USER}/data/wordpress
 	mkdir -p /home/${USER}/data/mariadb
